@@ -1,8 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 one=$1
 two=$2
-inkscape --export-png one.png $1
-inkscape --export-png two.png $2
 
-exec python ~/image-diff.py $PWD/one.png $PWD/two.png
+t1=/tmp/imagediff-1.png
+t2=/tmp/imagediff-2.png
+inkscape --export-png $t1 $1
+inkscape --export-png $t2 $2
+
+exec python ~/work/image-difftool/image-diff.py $t1 $t2
