@@ -13,14 +13,14 @@ def convert_image(f, tfile):
         import subprocess
         subprocess.check_call([
             'inkscape',
-            '--export-png', f,
-            tfile])
-
+            '--export-png', tfile,
+            f])
+        return tfile
     return f
 
 
 orig_fname = convert_image(argv[1], '/tmp/imagediff-1.png')
-put = convert_image(argv[2], '/tmp/imagediff-2.png')
+put_fname = convert_image(argv[2], '/tmp/imagediff-2.png')
 
 style.use('seaborn-white')
 fig,axes = plt.subplots(1,3)
