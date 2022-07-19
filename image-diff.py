@@ -16,7 +16,7 @@ def convert_image(f, tfile):
         import subprocess
         subprocess.check_call([
             'inkscape',
-            '--export-png', tfile,
+            '--export-filename', tfile,
             f])
         return tfile
     return f
